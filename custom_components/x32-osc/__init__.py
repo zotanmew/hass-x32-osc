@@ -5,10 +5,6 @@ from .x32 import *
 
 DOMAIN = "x32_osc"
 
-ATTR_NAME = "name"
-DEFAULT_NAME = "World"
-
-
 async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     """Set up is called when Home Assistant is loading our component."""
 
@@ -18,13 +14,15 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         scene_id = int(call.data.get("scene_id", "1"))
         ip = call.data.get("ip", "")
         port = 10023
+        x32_load_scene(ip, port, scene_id)
 
     @callback
     def set_main_vol(call: ServiceCall) -> None:
         """Handle the service action call."""
-        scene_id = float(call.data.get("volume", "0.0"))
+        vol = float(call.data.get("volume", "0.0"))
         ip = call.data.get("ip", "")
         port = 10023
+        x32_set_main_vol(ip, port, vol)
 
     hass.services.async_register(DOMAIN, "load_scene", load_scene)
     hass.services.async_register(DOMAIN, "set_main_vol", set_main_vol)
