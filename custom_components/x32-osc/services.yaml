@@ -1,0 +1,16 @@
+load_scene:
+  fields:
+    scene_id:
+      required: true
+      example: "1"
+    ip:
+      required: true
+      example: "192.168.1.123"
+set_main_vol:
+  fields:
+    volume:
+      required: true
+      example: "0.1"
+    ip:
+      required: true
+      example: "192.168.1.123"

@@ -1,0 +1,14 @@
+{
+  "domain": "x32_osc",
+  "name": "X32 OSC",
+  "codeowners": [
+    "@zotanmew"
+  ],
+  "config_flow": false,
+  "documentation": "https://github.com/zotanmew/hass-x32-osc",
+  "integration_type": "service",
+  "iot_class": "local_push",
+  "issue_tracker": "https://github.com/zotanmew/hass-x32-osc/issues",
+  "requirements": ["python-osc==1.9.3"],
+  "version": "0.1.0"
+}
